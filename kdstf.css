@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: smaller;
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+}
+h1 {
+  font-synthesis-position: auto;
+  font-size: larger;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+p {
+  margin-top: 20px; /* Mengatur margin atas */
+  margin-right: 40px; /* Mengatur margin kanan */
+  margin-bottom: 20px; /* Mengatur margin bawah */
+  margin-left: 40px; /* Mengatur margin kiri */
+  text-align: justify;
+}
+.container {
+  display: flex;
+}
+.column {
+  flex: 1;
+  padding: 10px;
+}
+.left-column {
+  background-color: #f0f0f0;
+}
+.right-column {
+  background-color: #e0e0e0;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+.gallery img {
+  margin: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  width: 200px;
+  height: auto;
+  transition: transform 0.2s;
+}
+.gallery img:hover {
+  transform: scale(1.1);
+  border-color: #eb1212;
+}
+.footer {
+  text-align: center;
+}

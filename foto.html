@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="kdstf.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KD St.Filipus</title>
+    <link rel="shortcut icon" href="St-Philip-Rasul.ico" type="image/x-icon" />
+    <link rel="icon" href="St-Philip-Rasul.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="St-Philip-Rasul.ico" type="image/x-icon" />
+    <link rel="icon" href="St-Philip-Rasul.ico" type="image/x-icon" />
+  </head>
+  <style>
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .gallery img {
+      width: 200px;
+      height: 200px;
+      margin: 5px;
+    }
+    .pagination {
+      margin-top: 20px;
+    }
+    .pagination button {
+      margin: 0 5px;
+    }
+  </style>
+
+  <body>
+    <ol>
+      <center>
+        <a href="index.html">Home</a>|
+        <a href="tentang.html">Tentang Kelompok Doa</a>|
+        <a href="Jadwal KD St.Filipus.pdf">Jadwal</a>|
+        <a href="https://id.wikipedia.org/wiki/Filipus"
+          >Tentang Santo Filipus Rasul</a
+        >|
+        <a href="https://id.wikipedia.org/wiki/Filipus_Neri"
+          >Tentang Santo Filipus Neri</a
+        >|
+        <a href="https://wa.me/+6285872067195">Contact WA</a>
+      </center>
+    </ol>
+
+    <hr />
+    <center>
+      <h1>Photo Gallery Kegiatan</h1>
+      <div class="gallery" id="gallery"></div>
+      <div class="pagination" id="pagination"></div>
+    </center>
+    <script>
+      const photos = [];
+      const photosPerPage = 2;
+      let currentPage = 1;
+
+      // Assuming you have 10 photos named photo1.jpg, photo2.jpg, ..., photo10.jpg in the foto folder
+      for (let i = 1; i <= 10; i++) {
+        photos.push(`foto/photo${i}.jpg`);
+      }
+
+      function displayPhotos(page) {
+        const gallery = document.getElementById("gallery");
+        gallery.innerHTML = "";
+        const start = (page - 1) * photosPerPage;
+        const end = start + photosPerPage;
+        const paginatedPhotos = photos.slice(start, end);
+
+        paginatedPhotos.forEach((photo) => {
+          const img = document.createElement("img");
+          img.src = photo;
+          img.alt = `Photo ${photo}`;
+          gallery.appendChild(img);
+        });
+      }
+
+      function setupPagination() {
+        const pagination = document.getElementById("pagination");
+        pagination.innerHTML = "";
+        const totalPages = Math.ceil(photos.length / photosPerPage);
+
+        for (let i = 1; i <= totalPages; i++) {
+          const button = document.createElement("button");
+          button.textContent = i;
+          button.addEventListener("click", () => {
+            currentPage = i;
+            displayPhotos(currentPage);
+          });
+          pagination.appendChild(button);
+        }
+      }
+
+      displayPhotos(currentPage);
+      setupPagination();
+    </script>
+  </body>
+</html>
